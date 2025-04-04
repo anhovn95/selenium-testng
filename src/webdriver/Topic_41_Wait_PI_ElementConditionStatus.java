@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Topic_41_Wait_ElementConditionStatus {
+public class Topic_41_Wait_PI_ElementConditionStatus {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");
