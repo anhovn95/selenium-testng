@@ -3,6 +3,7 @@ package webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,6 +15,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -26,14 +28,13 @@ public class Topic_42_Wait_PIII_ExplicitWait {
     @BeforeClass
     public void beforeClass() {
         if (osName.contains("Windows")) {
-            System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+            System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
         } else {
-            System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+            System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
         }
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-
         // Implicit Wait = 10s
         // Apply for element findings (findElement / findElements) -- General
 //        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -184,7 +185,7 @@ public class Topic_42_Wait_PIII_ExplicitWait {
     }
 
     @Test
-    public void TC_09_Exercise_05_Invisible() {
+    public void TC_09_Exercise_05_Visible() {
         driver.get("https://automationfc.github.io/dynamic-loading/");
 
         // Check with timeout = 3s ==> Failed because it reaches the timeout before the loading icon is invisible
@@ -196,7 +197,7 @@ public class Topic_42_Wait_PIII_ExplicitWait {
         explicitWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#start>button")));
         driver.findElement(By.cssSelector("div#start>button")).click();
 
-        // Wait for loading icon invisible
+        // Wait for the following step visible (Hello World)
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div#finish>h4")));
         Assert.assertEquals(driver.findElement(By.cssSelector("div#finish>h4")).getText(), "Hello World!");
     }
