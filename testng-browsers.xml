@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Multiple browsers">
+    <test name="Run on Chrome">
+            <classes>
+                <class name="testNG.TestNG_MultipleBrowsers"></class>
+            </classes>
+    </test>
+
+    <test name="Run on Firefox">
+        <parameter name="browser" value="Firefox">
+            <classes>
+                <class name="testNG.TestNG_MultipleBrowsers"></class>
+            </classes>
+        </parameter>
+    </test>
+
+    <test name="Run on Edge">
+        <parameter name="browser" value="Edge">
+            <classes>
+                <class name="testNG.TestNG_MultipleBrowsers"></class>
+            </classes>
+        </parameter>
+    </test>
+</suite>

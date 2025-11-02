@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Groups">
+    <test verbose="2" preserve-order="true"
+          name="Run by Groups">
+        <!-- Run all test case with a specific group-->
+        <groups>
+            <run>
+                <include name="CreditCard"/>
+                <include name="mustRun"/>
+            </run>
+        </groups>
+        <!-- Run all test cases in a package -->
+<!--        <packages>-->
+<!--            <package name="testNG"></package>-->
+<!--        </packages>-->
+
+        <!--        Run all test cases in the classes-->
+        <classes>
+            <class name="testNG.Feature_Payment"></class>
+            <class name="testNG.Annotation"></class>
+        </classes>
+    </test>
+</suite>
+
+<suite name="Multiple browsers">
+    <test name="Run on Chrome">
+        <parameter name="browser" value="Chrome">
+            <classes>
+                <class name="testNG.TestNG_MultipleBrowsers"></class>
+            </classes>
+        </parameter>
+    </test>
+
+    <test name="Run on Chrome">
+        <parameter name="browser" value="Firefox">
+            <classes>
+                <class name="testNG.TestNG_MultipleBrowsers"></class>
+            </classes>
+        </parameter>
+    </test>
+
+    <test name="Run on Chrome">
+        <parameter name="browser" value="Edge">
+            <classes>
+                <class name="testNG.TestNG_MultipleBrowsers"></class>
+            </classes>
+        </parameter>
+    </test>
+</suite>

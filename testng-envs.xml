@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Multiple browsers" parallel="tests" thread-count="3">
+
+    <test name="Run on Chrome_Test">
+        <parameter name="browser" value="Chrome" />
+        <parameter name="env" value="Test" />
+            <classes>
+                <class name="testNG.TestNG_MultipleEnv"></class>
+            </classes>
+    </test>
+
+    <test name="Run on Edge_Dev">
+        <parameter name="browser" value="Edge" />
+        <parameter name="env" value="Dev" />
+            <classes>
+                <class name="testNG.TestNG_MultipleEnv"></class>
+            </classes>
+    </test>
+    <test name="Run on Edge_Stage">
+        <parameter name="browser" value="Edge" />
+        <parameter name="env" value="Stage" />
+        <classes>
+            <class name="testNG.TestNG_MultipleEnv"></class>
+        </classes>
+    </test>
+</suite>
